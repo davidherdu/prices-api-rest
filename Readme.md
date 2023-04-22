@@ -30,13 +30,13 @@ I've built this project following a typical layered architecture (controller, se
 
 ## 🚀 How to execute the application
 
-Go to the project root directory and execute the following command to compile, test, package and install the different artifacts in your local maven repository.
+Go to the project root directory and execute the following command to compile, test, package and install the artifact in your local maven repository.
 
 ```shell
 mvn clean install
 ```
 
-After creating all artifacts you can run the project with the following command:
+After creating the artifact you can run the project with the following command:
 
 ```shell
 mvn spring-boot:run
