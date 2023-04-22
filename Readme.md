@@ -36,22 +36,10 @@ Go to the project root directory and execute the following command to compile, t
 mvn clean install
 ```
 
-Or use the embedded maven wrapper if you don't have a maven installation.
-
-```shell
-./mvnw clean install
-```
-
 After creating all artifacts you can run the project with the following command:
 
 ```shell
 mvn spring-boot:run
-```
-
-Or use the embedded maven wrapper if you don't have a maven installation.
-
-```shell
-./mvnw spring-boot:run
 ```
 
 It means the application is running properly and it will provide the following endpoints:
