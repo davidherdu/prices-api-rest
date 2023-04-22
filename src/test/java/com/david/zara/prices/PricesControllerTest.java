@@ -120,4 +120,34 @@ public class PricesControllerTest {
             .body("price", Matchers.is(38.95F))
             .extract();
     }
+    
+    /*
+     * petición con algun parametro que falta
+     */
+    @Test
+    void givenProduct35455_Brand1_thenError400() {
+
+        RestAssured
+        .when()
+            .get("http://localhost:" + port + PRICES_API_PATH + "productId=35455&brandId=1")
+        .then().log().body()
+            .contentType("application/problem+json")
+            .statusCode(400).and()
+            .extract();
+    }
+    
+    /*
+     * petición con precio no existente
+     */
+    @Test
+    void givenProduct12345_Brand1_Date20200616_2100_thenError404() {
+
+        RestAssured
+        .when()
+            .get("http://localhost:" + port + PRICES_API_PATH + "appDate=2020-06-16T21:00:00&productId=12345&brandId=1")
+        .then().log().body()
+            .contentType("application/problem+json")
+            .statusCode(404).and()
+            .extract();
+    }
 }

@@ -52,7 +52,7 @@ public class PriceController {
 		responseCode = "404", 
 		description = "No prices found for the current input parameters", 
 		content = @Content(
-			mediaType = "application/json", 
+			mediaType = "application/problem+json", 
 			schema = @Schema(type = "object", implementation = ErrorResponse.class)
 		)
 	)
