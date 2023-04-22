@@ -12,13 +12,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(PriceNotFoundException.class)
+    @ExceptionHandler(PriceNotFoundException.class)
     ErrorResponse handleBookmarkNotFoundException(PriceNotFoundException e) {
         return ErrorResponse.builder(e, HttpStatus.NOT_FOUND, e.getMessage())
-                .title("Price not found")
-                .type(URI.create("https://api.bookmarks.com/errors/not-found"))
-                .property("errorCategory", "Generic")
-                .property("timestamp", Instant.now())
-                .build();
+            .title("Price not found")
+            .type(URI.create("https://api.bookmarks.com/errors/not-found"))
+            .property("errorCategory", "Generic")
+            .property("timestamp", Instant.now())
+            .build();
     }
 }
