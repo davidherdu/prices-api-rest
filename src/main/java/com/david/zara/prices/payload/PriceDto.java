@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class PriceDto {
-	private Long id;
+    private Long id;
     private Long brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
