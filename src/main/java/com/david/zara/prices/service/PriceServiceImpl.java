@@ -12,15 +12,15 @@ import com.david.zara.prices.model.Price;
 
 @Service
 public class PriceServiceImpl implements PriceService {
-	
+
 	@Autowired
 	private PriceRepository priceRepository;
-	
+
 	@Override
-    public Optional<Price> searchPrice(LocalDateTime appDate, Long productId, Long brandId) {
+	public Optional<Price> searchPrice(LocalDateTime appDate, Long productId, Long brandId) {
 		return priceRepository
-				.findPrices(appDate, productId, brandId, Sort.by("priority").descending())
-				.stream()
-				.findFirst();
-    }
+			.findPrices(appDate, productId, brandId, Sort.by("priority").descending())
+			.stream()
+			.findFirst();
+	}
 }
