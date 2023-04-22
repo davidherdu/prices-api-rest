@@ -40,8 +40,22 @@ public class PriceController {
 	private PriceService priceService;
 	
 	@GetMapping
-	@ApiResponse(responseCode = "200", description = "Price found for current input data", content = @Content(mediaType = "application/json", schema = @Schema(type = "object", implementation = PriceDto.class)))
-	@ApiResponse(responseCode = "404", description = "No prices found for the current input parameters", content = @Content(mediaType = "application/json", schema = @Schema(type = "object", implementation = ErrorResponse.class)))
+	@ApiResponse(
+		responseCode = "200", 
+		description = "Price found for current input data", 
+		content = @Content(
+			mediaType = "application/json", 
+			schema = @Schema(type = "object", implementation = PriceDto.class)
+		)
+	)
+	@ApiResponse(
+		responseCode = "404", 
+		description = "No prices found for the current input parameters", 
+		content = @Content(
+			mediaType = "application/json", 
+			schema = @Schema(type = "object", implementation = ErrorResponse.class)
+		)
+	)
 	public ResponseEntity<PriceDto> getPrices(
 		@RequestParam @DateTimeFormat(iso = ISO.DATE_TIME) final LocalDateTime appDate, 
 		@RequestParam Long productId,
