@@ -1,4 +1,4 @@
-package com.david.zara.prices.payload;
+package com.david.zara.prices.dto.model;
 
 import java.time.LocalDateTime;
 

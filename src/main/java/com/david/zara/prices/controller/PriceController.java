@@ -1,9 +1,7 @@
 package com.david.zara.prices.controller;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -15,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.david.zara.prices.exception.PriceNotFoundException;
-import com.david.zara.prices.model.Price;
-import com.david.zara.prices.payload.PriceDto;
+import com.david.zara.prices.dto.model.PriceDto;
 import com.david.zara.prices.service.PriceService;
 
 import io.swagger.v3.oas.annotations.media.Content;
@@ -32,9 +28,6 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/prices")
 @Tag(name = "Prices", description = "Prices operations")
 public class PriceController {
-	
-	@Autowired
-	private ModelMapper modelMapper;
 	
 	@Autowired
 	private PriceService priceService;
@@ -61,9 +54,8 @@ public class PriceController {
 		@RequestParam Long productId,
 		@RequestParam Long brandId) {
 				
-		Optional<Price> price = priceService.searchPrice(appDate, productId, brandId);
-
-		return price.map(c -> ResponseEntity.ok().body(modelMapper.map(c, PriceDto.class)))
-					.orElseThrow(() -> new PriceNotFoundException(appDate, productId, brandId));                
+		PriceDto priceDto = priceService.searchPrice(appDate, productId, brandId);
+		
+		return ResponseEntity.ok().body(priceDto);               
 	}
 }
