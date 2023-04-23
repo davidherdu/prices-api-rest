@@ -11,9 +11,9 @@ import com.david.zara.prices.config.PropertiesConfig;
 @Component
 public class PriceException {
 	
-	private static PropertiesConfig propertiesConfig;
-	
-	@Autowired
+    private static PropertiesConfig propertiesConfig;
+
+    @Autowired
     public PriceException(PropertiesConfig propertiesConfig) {
         PriceException.propertiesConfig = propertiesConfig;
     }
