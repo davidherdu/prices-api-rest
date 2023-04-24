@@ -1,6 +1,6 @@
 # 👋 About
 
-Prices API Rest project based on layered architecture.
+Layered architecture based pricing Rest API project.
 
 ## ⚙️ Requirements
 
@@ -11,7 +11,7 @@ Prices API Rest project based on layered architecture.
 
 ### Common
 
-I've built this project following a typical layered architecture (controller, service and repository). I've added a `GlobalExceptionHandler` to manage exceptions and possible errors within the API
+I've built this project following a typical layered architecture (controller, service and repository). I've added a `GlobalExceptionHandler` to manage exceptions and possible errors within the API.
 
 ### H2 adapter
 
