@@ -28,34 +28,20 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/prices")
 @Tag(name = "Prices", description = "Prices operations")
 public class PriceController {
-	
+
 	@Autowired
 	private PriceService priceService;
-	
+
 	@GetMapping
-	@ApiResponse(
-		responseCode = "200", 
-		description = "Price found for current input data", 
-		content = @Content(
-			mediaType = "application/json", 
-			schema = @Schema(type = "object", implementation = PriceDto.class)
-		)
-	)
-	@ApiResponse(
-		responseCode = "404", 
-		description = "No prices found for the current input parameters", 
-		content = @Content(
-			mediaType = "application/problem+json", 
-			schema = @Schema(type = "object", implementation = ErrorResponse.class)
-		)
-	)
+	@ApiResponse(responseCode = "200", description = "Price found for current input data", content = @Content(mediaType = "application/json", schema = @Schema(type = "object", implementation = PriceDto.class)))
+	@ApiResponse(responseCode = "404", description = "No prices found for the current input parameters", content = @Content(mediaType = "application/problem+json", schema = @Schema(type = "object", implementation = ErrorResponse.class)))
 	public ResponseEntity<PriceDto> getPrices(
-		@RequestParam @DateTimeFormat(iso = ISO.DATE_TIME) final LocalDateTime appDate, 
-		@RequestParam Long productId,
-		@RequestParam Long brandId) {
-				
+			@RequestParam @DateTimeFormat(iso = ISO.DATE_TIME) final LocalDateTime appDate,
+			@RequestParam Long productId,
+			@RequestParam Long brandId) {
+
 		PriceDto priceDto = priceService.searchPrice(appDate, productId, brandId);
-		
-		return ResponseEntity.ok().body(priceDto);               
+
+		return ResponseEntity.ok().body(priceDto);
 	}
 }
