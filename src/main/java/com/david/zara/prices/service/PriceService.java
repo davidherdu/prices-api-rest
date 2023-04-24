@@ -2,7 +2,7 @@ package com.david.zara.prices.service;
 
 import java.time.LocalDateTime;
 
-import com.david.zara.prices.dto.model.PriceDto;
+import com.david.zara.prices.dto.PriceDto;
 
 public interface PriceService {
 
